@@ -1,0 +1,20 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elina-nep/file-manager.git"
+  },
+  "author": "Elina-nep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elina-nep/file-manager/issues"
+  },
+  "homepage": "https://github.com/Elina-nep/file-manager#readme"
+}
