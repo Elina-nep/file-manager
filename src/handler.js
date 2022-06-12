@@ -87,7 +87,6 @@ export const parseInput = (line, homeDir, currentDir) => {
 
     case ('.exit'):
       {
-        console.log('exit')
         process.exit(0);
       }
 

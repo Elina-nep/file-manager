@@ -5,7 +5,7 @@ import { consolePath } from './consolePath.js';
 export const goToDir = (currentDir, newPath, homeDir) => {
   if (path.isAbsolute(newPath)) {
 
-    if (!newPath.include(homeDir)) {
+    if (!newPath.includes(homeDir)) {
       newPath = currentDir.getPath();
     }
   } else {
