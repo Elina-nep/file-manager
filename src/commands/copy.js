@@ -8,13 +8,13 @@ export const copy = async(pathToFile, pathToNewDirectory) => {
   const absPathToFile = getAbsPath(pathToFile);
   const absPathToDest = getAbsPath(pathToNewDirectory);
 
-  fs.access(path.resolve(absPathToDest, String(absPathToFile.slice('/')[-1])), (err) => {
+  fs.access(path.resolve(absPathToDest, String(absPathToFile.slice(path.sep)[-1])), (err) => {
     if (!err) console.log('Operation failed');
     return;
   })
 
   const source = fs.createReadStream(absPathToFile)
-  const destination = fs.createWriteStream(path.resolve(absPathToDest, String((absPathToFile.split('/')).slice(-1))))
+  const destination = fs.createWriteStream(path.resolve(absPathToDest, String((absPathToFile.split(path.sep)).slice(-1))))
 
   source.pipe(destination).on('error', () => { console.log('Operation failed') }).on('close', () => { consolePath() })
 
