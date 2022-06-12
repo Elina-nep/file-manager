@@ -4,7 +4,7 @@ import { remove } from "./delete.js";
 
 export const move = async(pathToFile, pathToNewDirectory) => {
 
-  copy(pathToFile, pathToNewDirectory);
-  remove(pathToFile);
+  copy(pathToFile, pathToNewDirectory).then(() => { remove(pathToFile); });
+
 
 }
