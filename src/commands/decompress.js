@@ -11,7 +11,7 @@ export const decompress = async(pathToFile, pathToDestination) => {
 
   const absPathToFile = getAbsPath(pathToFile);
   const absPathToDest = getAbsPath(pathToDestination);
-  const fileName = (String(absPathToFile.split('/').slice(-1)).split('.').slice(0, -1)).join('.');
+  const fileName = (String(absPathToFile.split(path.sep).slice(-1)).split('.').slice(0, -1)).join('.');
 
   const unzip = createUnzip();
   const source = createReadStream(absPathToFile);

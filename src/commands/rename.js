@@ -1,19 +1,17 @@
 import fs from 'fs';
 import path from 'path';
-import * as path from 'path';
-import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 
 export const rename = async(pathToFile, newFilename) => {
 
   const absPathToFile = getAbsPath(pathToFile);
-  const absPathToNewFile = absPathToFile.split(path.sep)
-  const absPathToDest = getAbsPath(pathToNewDirectory);
+  const absPathToNewFile = path.normalize(`${String((absPathToFile.split(path.sep)).slice(-1))}/${newFilename}`);
 
-  fs.access(pathToFile, (err) => {
-    if (!err) throw new Error('Operation failed')
-    fs.rename(pathToFile, path.resolve(dirname(pathToFile), newFilename), err => {
-      if (err) throw new Error('Operation failed')
-    });
+  fs.access(absPathToNewFile, (err) => {
+    if (!err) { console.log('Operation failed') } else {
+      fs.rename(absPathToFile, newFilename, err => {
+        if (err) console.log('Operation failed')
+      });
+    }
   })
 };

@@ -8,7 +8,7 @@ export const copy = async(pathToFile, pathToNewDirectory) => {
   const absPathToFile = getAbsPath(pathToFile);
   const absPathToDest = getAbsPath(pathToNewDirectory);
 
-  fs.access(path.resolve(absPathToDest, String(absPathToFile.slice(path.sep)[-1])), (err) => {
+  fs.access(path.resolve(absPathToDest, String((absPathToFile.split(path.sep)).slice(-1))), (err) => {
     if (!err) console.log('Operation failed');
     return;
   })

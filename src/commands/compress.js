@@ -11,7 +11,7 @@ export const compress = async(pathToFile, pathToDestination) => {
 
   const absPathToFile = getAbsPath(pathToFile);
   const absPathToDest = getAbsPath(pathToDestination);
-  const fileName = String(absPathToFile.split('/').slice(-1));
+  const fileName = String(absPathToFile.split(path.sep).slice(-1));
 
   const gzip = createGzip();
   const source = createReadStream(absPathToFile);
