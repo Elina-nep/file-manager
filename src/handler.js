@@ -11,6 +11,7 @@ import { read } from "./commands/read.js";
 import { rename } from "./commands/rename.js";
 import { goToDir } from "./commands/goToDir.js";
 import { consolePath } from './commands/consolePath.js';
+import { getOsInfo } from "./commands/os.js";
 
 export const parseInput = (line, homeDir, currentDir) => {
   const inputCommand = line.split(' ');
@@ -66,7 +67,8 @@ export const parseInput = (line, homeDir, currentDir) => {
       }
     case ('os'):
       {
-
+        getOsInfo(inputCommand[1]);
+        consolePath();
         break;
       }
     case ('hash'):
